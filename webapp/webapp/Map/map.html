@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Add Map</title>
+
+        <!--FONTS-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100&display=swap" rel="stylesheet">
+        <!--OTHERS-->
+
+        <link rel="stylesheet" type="text/css" href="map.css" />
+        <script src="map.js"></script>
+    </head>
+
+    <body>
+        <!--The div element for the map -->
+        <div id="map"></div>
+
+        <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&v=weekly" async></script>
+    </body>
+</html>

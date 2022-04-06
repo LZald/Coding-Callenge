@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+
+    <head>
+        <title>Register</title>
+        <!--Link to CSS -->
+        <link href="bootstrap.min.css" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+    </head>
+
+    <body class="text-center">
+        <div class="form-signin">
+            <h1 class="h2 mb-3 font-weight-normal">Bike Service</h1><br><br>
+            <input type="text" id="username" name="user" class="form-control" placeholder="User" required autocomplete="off" autofocus><br>
+            <input type="password" id="pass" name="passwd" class="form-control" placeholder="Password" required autocomplete="off"><br>
+            <input type="password" id="pass2" name="passwd2" class="form-control" placeholder="Check Password" required autocomplete="off"><br>
+            <button class="btn btn-lg btn-primary btn-block" onclick="register()">Register</button>
+            <hr class="hr-text" data-content="O">
+            <a href="index.html">Login</a>
+        </div>
+    </body>
+    <script>
+        function register(){
+            const BASE_PATH = 'http://localhost:9080/'
+
+            var u = document.getElementById("username").value;
+            var p = document.getElementById("pass").value;
+            var p2 = document.getElementById("pass2").value;
+
+            if(!checkFields(u,p,p2)){return;}
+
+            let user = {
+                name: u,
+                passwd: p
+            };
+
+            fetch(BASE_PATH + "register",
+            {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: JSON.stringify(user)
+            }).then(function(res){
+                if(res.ok){
+                    return res.json();
+                }
+                throw res;
+            }).then(function(data) {
+                localStorage.setItem('user', JSON.stringify(data));
+                window.location.href = "Map/map.html";
+            }).catch( err => {
+                err.text().then( errorMessage => {
+                    window.alert('Error: ' + errorMessage);
+                })
+            })
+        }
+
+        function checkFields(user, p1, p2){
+            if(user == ''){
+                window.alert("Please complete User field");
+                return false;
+            }
+            if(p1 == ''){
+                window.alert("Please complete Password field");
+                return false;
+            }
+            if(p2 == ''){
+                window.alert("Please complete Check Password field");
+                return false;
+            }
+            if(p1 != p2){
+                window.alert("Passwords don't match");
+                return false;
+            }
+            return true;
+        }
+
+        window.addEventListener('DOMContentLoaded', (event) => {
+            if (localStorage.getItem('user') !== null) window.location.href = "Map/map.html";
+        });
+    </script>
+
+</html>

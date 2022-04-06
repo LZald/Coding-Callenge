@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+}
+
+/* Set the size of the div element that contains the map */
+#map {
+    height: 100vh;
+    width: 100%;
+}
+
+.l-perso-styles{
+    font-family: 'Barlow', sans-serif;
+}
+
+.perso-cn{
+    margin: 0 1.5rem;
+}
+.perso-cn > h2{
+    margin-bottom: 0;
+    font-weight: 700;
+    font-size: 30px;
+}
+.perso-cn > p{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 18px;
+}
+.perso-instructions{
+    margin: 0 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.perso-controls{
+    margin: 1.5rem 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.perso-controls-usr{
+    margin: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.btn-rent {
+    background-color: rgb(1, 196, 222);
+    border: none;
+    border-radius: 25px;
+    width: 8rem;
+    height: 2.5rem;
+    color: white;
+    user-select: none;
+    cursor: pointer;
+    transition:  background-color 0.2s ease-in-out;
+}
+
+.btn-rent:hover:enabled{
+    background-color: rgb(1, 153, 173);
+}
+
+.btn-return{
+    background-color: rgb(233, 72, 72);
+    transition:  background-color 0.2s ease-in-out;
+}
+
+.btn-return:hover:enabled{
+    background-color: rgb(233, 100, 124);
+}
+
+button:disabled,
+button[disabled]{
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+}

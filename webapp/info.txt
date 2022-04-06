@@ -1,0 +1,11 @@
+docker build -t webapp .
+docker build -t api .
+docker-compose up
+docker-compose up --build
+docker-compose down; docker-compose up --build
+
+
+https://hub.docker.com/_/nginx
+https://docs.docker.com/engine/reference/builder/#from
+
+https://hub.docker.com/_/python?tab=description
